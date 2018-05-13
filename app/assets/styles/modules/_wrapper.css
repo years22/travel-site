@@ -1,0 +1,26 @@
+.wrapper {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 1236px; /* accounting for what we "lost" by box-sizing: border-box globally */
+    margin: auto; /* in the original we use margin-left & margin-right specifically */
+    overflow: hidden;
+
+    &--medium {
+        max-width: 976px;
+    }
+
+    .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        /* offsetting any padding for wrappers inside wrappers */
+    }
+
+    &--b-margin {
+        margin-bottom: 1rem;
+
+        @mixin atMedium {
+            margin-bottom: 3.875rem;
+        }
+        /* different margin-solution than the original! */
+    }
+}

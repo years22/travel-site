@@ -1,0 +1,27 @@
+.generic-content-container {
+    /* deliberately goes against BEM, which would've forced us to add a class to every single <p>-element, of which there could be dozens on a page */
+
+    p {
+        color: $mainBlue;
+        line-height: 1.65;
+        margin-bottom: 1.125rem;
+
+        &:not(:first-of-type) {
+            margin-top: 1.125rem;
+        } /* own creation, together with headline &--no-t-margin {
+        margin-bottom: 1.4rem; }, to make the space below the headline *not bigger* than the one above it */
+
+        @mixin atSmall {            
+            font-size: 1.125rem;            
+            margin-bottom: 1.8rem;
+            &:not(:first-of-type) {
+                margin-top: 1.8rem;
+            }
+        }
+    }
+
+    p a { /* dude doesn't like to nest more than 1 layer deep */
+        text-decoration: none;
+        font-weight: 700;
+    }
+}
