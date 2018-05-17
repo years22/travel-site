@@ -23,4 +23,26 @@
         }
         /* different margin-solution than the original! */
     }
+
+    &--no-padding-until-medium {
+        padding-left: 0;
+        padding-right: 0;
+        /* small screens need as much horizontal breathing room as possible, so additional padding should be removed */
+
+        @mixin atMedium {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
+
+    &--no-padding-until-large {
+        padding-left: 0;
+        padding-right: 0;
+        /* small screens need as much horizontal breathing room as possible, so additional padding should be removed */
+
+        @mixin atLarge {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
 }

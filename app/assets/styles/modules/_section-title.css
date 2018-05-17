@@ -13,6 +13,10 @@
         font-weight: 500;
     }
 
+    &--blue {
+        color: $mainBlue;
+    }
+
     &__icon {        
         display: block;
         /* drops the text after it onto the next line */
@@ -20,9 +24,9 @@
         
         @mixin atSmall {
             position: relative;
-            bottom: -5px;
+            bottom: -6px;
             /* no idea why, but had to add this to make the icon align like it does in the original, i.e. little below the baseline */
-            margin: 0 .5rem 0 0;
+            margin: 0 .8rem 0 0;
             display: inline-block;
         }
     }

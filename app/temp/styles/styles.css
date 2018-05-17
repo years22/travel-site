@@ -450,8 +450,15 @@ template {
   display: none;
 }
 
-* {    
-    -webkit-box-sizing: border-box;    
+*,
+*::after,
+*::before {    
+    -webkit-box-sizing: inherit;    
+            box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
 
@@ -591,21 +598,86 @@ a {
     }
     }
 
+.wrapper--no-padding-until-medium {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+/* small screens need as much horizontal breathing room as possible, so additional padding should be removed */
+
+@media (min-width: 800px) {
+
+.wrapper--no-padding-until-medium {
+            padding-left: 18px;
+            padding-right: 18px
+    }
+    }
+
+.wrapper--no-padding-until-large {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+/* small screens need as much horizontal breathing room as possible, so additional padding should be removed */
+
+@media (min-width: 1010px) {
+
+.wrapper--no-padding-until-large {
+            padding-left: 18px;
+            padding-right: 18px
+    }
+    }
+
 .page-section {
     padding: 1.2rem 0;
-    color: #2f5572;
 }
 
 @media (min-width: 800px) {
 
 .page-section {
-        padding: 4rem 0
+        padding: 4.5rem 0
 }
     }
 
 .page-section--blue {
         background-color: #2f5572;
         color: #fff;
+    }
+
+.page-section--testimonials {
+        background-color: #e0e6ef;
+    }
+
+@media (min-width: 1010px) {
+
+.page-section--testimonials {
+            background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+            background-size: cover
+    }
+    }
+
+.page-section--no-b-padding-until-medium {
+        padding-bottom: 0;
+    }
+
+@media (min-width: 800px) {
+
+.page-section--no-b-padding-until-medium {
+            padding-bottom: 4.5rem
+    }
+    }
+
+/* we decided not to use this, but left it for potential future use */
+
+.page-section--no-b-padding-until-large {
+        padding-bottom: 0;
+    }
+
+@media (min-width: 1010px) {
+
+.page-section--no-b-padding-until-large {
+            padding-bottom: 4.5rem
+    }
     }
 
 .headline {
@@ -703,9 +775,36 @@ a {
         }
     }
 
+@media (min-width: 1010px) {
+        .row__large-4 {
+            float: left;
+            width: 33.33%;
+        }
+
+            .row__large-4--larger {
+                width: 37%;
+                /* overriding the previous rule instead of changing it, cause we can make use of the 33% width later in the testimonial-section ... ?? */
+            }
+
+        .row__large-8 {
+            float: right;
+            width: 66.66%;
+        }
+            /* ... which ofc means that we'll never use *this* rule even once - good practice? */
+
+            .row__large-8--smaller {
+                width: 63%;
+            }
+
+        .row__large-6 {
+        float: left;
+        width: 50%;
+        }
+    }
+
 .row--gutters {
 
-        margin-right: -65px;
+        margin-right: -65px;        
     }
 
 .row--gutters>div {
@@ -719,6 +818,54 @@ a {
 .row--gutters-large>div {
                 padding-right: 100px;
             }
+
+.row--gutters-small {
+            margin-right: -45px;
+        }
+
+.row--gutters-small>div {
+                padding-right: 45px;
+            }
+
+.row--t-padding {
+        padding-top: 80px;
+    }
+
+/* Begin Equal Height Rules */
+
+@media (min-width: 800px) {
+
+.row--equal-height-at-medium {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+
+.row--equal-height-at-medium>div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            /* stop them from floating & take on flex-attribute instead */
+        }
+
+@media (min-width: 1010px) {
+
+.row--equal-height-at-large {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+    }
+    }
+
+.row--equal-height-at-large>div {
+            float: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            /* stop them from floating & take on flex-attribute instead */
+        }
 
 /* deliberately goes against BEM, which would've forced us to add a class to every single <p>-element, of which there could be dozens on a page */
 
@@ -770,6 +917,10 @@ a {
         font-weight: 500;
     }
 
+.section-title--blue {
+        color: #2f5572;
+    }
+
 .section-title__icon {        
         display: block;
         /* drops the text after it onto the next line */
@@ -780,9 +931,9 @@ a {
 
 .section-title__icon {
             position: relative;
-            bottom: -5px;
+            bottom: -6px;
             /* no idea why, but had to add this to make the icon align like it does in the original, i.e. little below the baseline */
-            margin: 0 .5rem 0 0;
+            margin: 0 .8rem 0 0;
             display: inline-block
     }
     }
@@ -829,6 +980,59 @@ a {
             margin-top: 0;
             text-align: left
     }
+    }
+
+.testimonial {
+    background-color: rgba(255, 255, 255, .8);
+    padding: 0 18px 1px 18px;
+    /* 1px bottom padding of the container gives the p-element, which has its own margin, something to push up against -> otherwise invisibly overflowing margin of <p> becomes visible */    
+    margin-bottom: 98px;
+}
+
+/* 80px + a little more */
+
+@media (min-width: 1010px) {
+
+.testimonial {
+        padding: 0 1.8125rem 1px 1.8125rem;
+        margin-bottom: 0
+}
+    }
+
+.testimonial--last {
+        margin-bottom: 0;
+        /* somehow &:last-child/-of-type doesn't work here ?? */
+    }
+
+.testimonial__photo {
+        border-radius: 80px;
+        /* needs to be half of the image in order to appear as a circle */
+        overflow: hidden;
+        /* otherwise image is allowed to protrude its edges, i.e. the rounding will not be visible */
+        width: 160px;
+        height: 160px;
+        /* width & height need to be the ones of the image */
+        margin: 0 auto -80px auto;
+        /* bottom margin to counteract the gap from pulling the image up 80px */
+        position: relative;
+        top: -80px;
+        border: 5px solid rgba(255, 255, 255, .8);
+    }
+
+.testimonial__title {
+        color: #2f5572;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+.testimonial__subtitle {
+        color: #d59541;
+        text-align: center;
+        font-size: .9375rem;
+        font-weight: 400;
+        margin: .25rem 0 1rem;
     }
 
 

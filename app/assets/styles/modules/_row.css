@@ -29,6 +29,33 @@
         }
     }
 
+    @mixin atLarge {
+        &__large-4 {
+            float: left;
+            width: 33.33%;
+
+            &--larger {
+                width: 37%;
+                /* overriding the previous rule instead of changing it, cause we can make use of the 33% width later in the testimonial-section ... ?? */
+            }
+        }
+
+        &__large-8 {
+            float: right;
+            width: 66.66%;
+            /* ... which ofc means that we'll never use *this* rule even once - good practice? */
+
+            &--smaller {
+                width: 63%;
+            }
+        }
+
+        &__large-6 {
+        float: left;
+        width: 50%;
+        }
+    }
+
     &--gutters {
 
         margin-right: -65px;
@@ -43,6 +70,43 @@
                 &>div {
                 padding-right: 100px;
             }
+        }
+
+        &-small {
+            margin-right: -45px;
+
+            &>div {
+                padding-right: 45px;
+            }
+        }        
+    }
+
+    &--t-padding {
+        padding-top: 80px;
+    }
+
+    /* Begin Equal Height Rules */
+    &--equal-height-at-medium {
+        @mixin atMedium {
+            display: flex;            
+        }
+
+        &>div {
+            float: none;
+            display: flex;
+            /* stop them from floating & take on flex-attribute instead */
+        }
+    }
+
+     &--equal-height-at-large {
+        @mixin atLarge {
+            display: flex;            
+        }
+
+        &>div {
+            float: none;
+            display: flex;
+            /* stop them from floating & take on flex-attribute instead */
         }
     }
 }
