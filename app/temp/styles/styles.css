@@ -469,125 +469,6 @@ a {
     color: #d59541;
 }
 
-.btn {
-    background-color: #2f5572;
-    color: #fff;
-    text-decoration: none;
-    padding: .75rem 1.2rem;
-    display: inline-block;
-}
-
-/* "that way, its parent- & surrounding elements will know its vertical padding" */
-
-.btn--orange {
-        background-color: #d59541;
-    }
-
-.btn--large { 
-        /* no font-size will default to 1rem */
-        padding: 1.1rem 1.9rem;
-    }
-
-@media (min-width: 530px) {
-
-.btn--large {
-            font-size: 1.25rem
-    }
-    }
-
-/* deliberately goes against BEM, which would've forced us to add a class to every single <p>-element, of which there could be dozens on a page */
-
-.generic-content-container p {
-        color: #2f5572;
-        line-height: 1.65;
-        margin-bottom: 1.125rem;
-    }
-
-.generic-content-container p:not(:first-of-type) {
-            margin-top: 1.125rem;
-        }
-
-/* own creation, together with headline &--no-t-margin {
-        margin-bottom: 1.4rem; }, to make the space below the headline *not bigger* than the one above it */
-
-@media (min-width: 530px) {
-
-.generic-content-container p {            
-            font-size: 1.125rem;            
-            margin-bottom: 1.8rem
-    }
-            .generic-content-container p:not(:first-of-type) {
-                margin-top: 1.8rem;
-            }
-    }
-
-.generic-content-container p a { /* dude doesn't like to nest more than 1 layer deep */
-        text-decoration: none;
-        font-weight: 700;
-    }
-
-.headline {
-    font-size: 1.9rem;
-    font-weight: 300;
-    color: #2f5572;
-}
-
-@media (min-width: 530px) {
-
-.headline {
-        font-size: 2.875rem
-}
-    }
-
-.headline--light {
-        font-weight: 100;
-    }
-
-.headline--centered {
-        text-align: center;
-    }
-
-.headline--orange {
-        color: #d59541;
-    }
-
-.headline--small {
-        font-size: 1.2rem;
-    }
-
-@media (min-width: 530px) {
-
-.headline--small {
-            font-size: 1.875rem
-    }
-    }
-
-.headline--narrow {
-        max-width: 500px;
-        margin: auto;
-    }
-
-.headline--b-margin-small {
-        margin-bottom: .5em;
-        /* em is relative to the font-size of the element itself! */
-    }
-
-.headline--b-margin-large {
-        margin-bottom: 1.6em;
-    }
-
-.headline--no-t-margin {
-        margin-bottom: 1.4rem;
-    }
-
-@media (min-width: 800px) {
-
-.headline--no-t-margin {
-            margin-top: -7px;
-            margin-bottom: 1.8rem
-    }
-    }
-
 /* starting a file-name with an underscore _ tells others that this is a partial file & won't likely be used on its own */
 
 .large-hero {
@@ -654,20 +535,139 @@ a {
     }
     }
 
+.btn {
+    background-color: #2f5572;
+    color: #fff;
+    text-decoration: none;
+    padding: .75rem 1.2rem;
+    display: inline-block;
+}
+
+/* "that way, its parent- & surrounding elements will know its vertical padding" */
+
+.btn--orange {
+        background-color: #d59541;
+    }
+
+.btn--large { 
+        /* no font-size will default to 1rem */
+        padding: 1.1rem 1.9rem;
+    }
+
+@media (min-width: 530px) {
+
+.btn--large {
+            font-size: 1.25rem
+    }
+    }
+
+.wrapper {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 1236px; /* accounting for what we "lost" by box-sizing: border-box globally */
+    margin: auto; /* in the original we use margin-left & margin-right specifically */
+    overflow: hidden;
+}
+
+.wrapper--medium {
+        max-width: 976px;
+    }
+
+.wrapper .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        /* offsetting any padding for wrappers inside wrappers */
+    }
+
+.wrapper--b-margin {
+        margin-bottom: 1rem;
+        /* different margin-solution than the original! */
+    }
+
+@media (min-width: 800px) {
+
+.wrapper--b-margin {
+            margin-bottom: 3.875rem
+    }
+    }
+
 .page-section {
     padding: 1.2rem 0;
+    color: #2f5572;
 }
 
 @media (min-width: 800px) {
 
 .page-section {
-        padding: 4.5rem 0
+        padding: 4rem 0
 }
     }
 
 .page-section--blue {
         background-color: #2f5572;
         color: #fff;
+    }
+
+.headline {
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: #2f5572;
+}
+
+@media (min-width: 530px) {
+
+.headline {
+        font-size: 2.875rem
+}
+    }
+
+.headline--light {
+        font-weight: 100;
+    }
+
+.headline--centered {
+        text-align: center;
+    }
+
+.headline--orange {
+        color: #d59541;
+    }
+
+.headline--small {
+        font-size: 1.2rem;
+    }
+
+@media (min-width: 530px) {
+
+.headline--small {
+            font-size: 1.875rem
+    }
+    }
+
+.headline--narrow {
+        max-width: 500px;
+        margin: auto;
+    }
+
+.headline--b-margin-small {
+        margin-bottom: .5em;
+        /* em is relative to the font-size of the element itself! */
+    }
+
+.headline--b-margin-large {
+        margin-bottom: 1.6em;
+    }
+
+.headline--no-t-margin {
+        margin-bottom: 1.4rem;
+    }
+
+@media (min-width: 800px) {
+
+.headline--no-t-margin {
+            margin-top: -7px;
+            margin-bottom: 1.8rem
+    }
     }
 
 .row::after {
@@ -701,11 +701,6 @@ a {
         float: left;
         width: 50%;
         }
-
-        .row__medium-6-2 {
-            float: right;
-            width: 50%;
-        }
     }
 
 .row--gutters {
@@ -717,33 +712,122 @@ a {
             padding-right: 65px;
         }
 
-.wrapper {
-    padding-left: 18px;
-    padding-right: 18px;
-    max-width: 1236px; /* accounting for what we "lost" by box-sizing: border-box globally */
-    margin: auto; /* in the original we use margin-left & margin-right specifically */
-    overflow: hidden;
+.row--gutters-large {
+            margin-right: -100px;
+        }
+
+.row--gutters-large>div {
+                padding-right: 100px;
+            }
+
+/* deliberately goes against BEM, which would've forced us to add a class to every single <p>-element, of which there could be dozens on a page */
+
+.generic-content-container p {
+        line-height: 1.65;
+        margin-bottom: 0 0 1.125rem 0;
+        font-weight: 300;
+    }
+
+.generic-content-container p:not(:first-of-type) {
+            margin-top: 1.125rem;
+        }
+
+/* own creation, together with headline &--no-t-margin {
+        margin-bottom: 1.4rem; }, to make the space below the headline *not bigger* than the one above it */
+
+@media (min-width: 530px) {
+
+.generic-content-container p {            
+            font-size: 1.125rem;            
+            margin-bottom: 1.8rem
+    }
+            .generic-content-container p:not(:first-of-type) {
+                margin-top: 1.8rem;
+            }
+    }
+
+.generic-content-container p a { /* dude doesn't like to nest more than 1 layer deep */
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+.section-title {
+    margin-bottom: 4rem;
+    font-size: 2.55rem;
+    font-weight: 300;
+    text-align: center;
 }
 
-.wrapper--medium {
-        max-width: 976px;
+@media (min-width: 530px) {
+
+.section-title {
+        font-size: 3.75rem;
+        margin: 3rem auto 5rem 0
+}
     }
 
-.wrapper .wrapper {
-        padding-left: 0;
-        padding-right: 0;
-        /* offsetting any padding for wrappers inside wrappers */
+.section-title strong {
+        font-weight: 500;
     }
 
-.wrapper--b-margin {
-        margin-bottom: 1rem;
-        /* different margin-solution than the original! */
+.section-title__icon {        
+        display: block;
+        /* drops the text after it onto the next line */
+        margin: 0 auto 1.1rem;
     }
 
-@media (min-width: 800px) {
+@media (min-width: 530px) {
 
-.wrapper--b-margin {
-            margin-bottom: 3.875rem
+.section-title__icon {
+            position: relative;
+            bottom: -5px;
+            /* no idea why, but had to add this to make the icon align like it does in the original, i.e. little below the baseline */
+            margin: 0 .5rem 0 0;
+            display: inline-block
+    }
+    }
+
+.feature-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+    margin-top: -1rem;
+}
+
+@media (min-width: 530px) {
+
+.feature-item {        
+        padding-left: 94px;
+        margin-top: 0
+}
+    }
+
+.feature-item__icon {
+        display: block;
+        margin: 0 auto;
+    }
+
+@media (min-width: 530px) {
+
+.feature-item__icon {            
+            position: absolute;
+            left: 0
+    }
+    }
+
+.feature-item__title {
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-top: 0.7em;
+        margin-bottom: .8rem;
+        text-align: center;
+    }
+
+@media (min-width: 530px) {
+
+.feature-item__title {
+            font-size: 1.875rem;
+            margin-top: 0;
+            text-align: left
     }
     }
 
