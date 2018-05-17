@@ -27,11 +27,6 @@
         float: left;
         width: 50%;
         }
-
-        &__medium-6-2 {
-            float: right;
-            width: 50%;
-        }
     }
 
     &--gutters {
@@ -40,6 +35,14 @@
 
         &>div {
             padding-right: 65px;
+        }
+
+        &-large {
+            margin-right: -100px;
+
+                &>div {
+                padding-right: 100px;
+            }
         }
     }
 }

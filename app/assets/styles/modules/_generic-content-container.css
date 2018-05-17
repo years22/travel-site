@@ -2,9 +2,9 @@
     /* deliberately goes against BEM, which would've forced us to add a class to every single <p>-element, of which there could be dozens on a page */
 
     p {
-        color: $mainBlue;
         line-height: 1.65;
-        margin-bottom: 1.125rem;
+        margin-bottom: 0 0 1.125rem 0;
+        font-weight: 300;
 
         &:not(:first-of-type) {
             margin-top: 1.125rem;
