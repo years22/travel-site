@@ -11,7 +11,7 @@
                 width: 37%;
                 /* overriding the previous rule instead of changing it, cause we can make use of the 33% width later in the testimonial-section ... ?? */
             }
-        }
+        } 
 
         &__medium-8 {
             float: right;
@@ -106,7 +106,6 @@
         &>div {
             float: none;
             display: flex;
-            /* stop them from floating & take on flex-attribute instead */
         }
     }
 }

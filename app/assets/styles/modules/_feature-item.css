@@ -3,7 +3,7 @@
     padding-bottom: 2.5rem;
     margin-top: -1rem;
 
-    @mixin atSmall {        
+    @mixin atSmall {
         padding-left: 94px;
         margin-top: 0;
     }
@@ -15,7 +15,7 @@
         @mixin atSmall {            
             position: absolute;
             left: 0;
-        }
+        } 
     }
 
     &__title {
